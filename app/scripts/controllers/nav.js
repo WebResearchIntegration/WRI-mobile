@@ -9,9 +9,7 @@
  */
 angular.module('wriMobileApp')
   .controller('NavCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    var ctrl = this;
+
+    
   });
