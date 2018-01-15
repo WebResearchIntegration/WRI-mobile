@@ -12,6 +12,16 @@ angular.module('wriMobileApp')
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
-      'Karma'
+      'Karma',
+      "e",
+      "d",
+      "ee",
+      "dd",
+      "ddd",
+      "ddddd",
+      "ddde",
+      "dddd",
+      "zdez",
+      "dzde"
     ];
   });
