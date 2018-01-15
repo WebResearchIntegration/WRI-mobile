@@ -23,5 +23,5 @@ angular.module('wriMobileApp')
       "dddd",
       "zdez",
       "dzde"
-    ];
+    ]; 
   });
