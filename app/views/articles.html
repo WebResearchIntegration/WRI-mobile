@@ -1,4 +1,9 @@
-<div class="container">
+<header class="header">
+    <nav class="wri-nav" ng-include="'views/include/nav.html'" ng-controller="NavCtrl as nav">
+    </nav>
+</header>
+  <br>
+<div class="container-fluid" style="margin-top:10vh;">
     <div class="row">
         <div class="wri-card col-sm row" ng-repeat="artis in article.awesomeThings">
             <div class="card-left">
