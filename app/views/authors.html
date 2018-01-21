@@ -1,5 +1,109 @@
 <header class="header">
     <nav class="wri-nav" ng-include="'views/include/nav.html'" ng-controller="NavCtrl as nav">
     </nav>
-  </header>
-  <br>
+</header>
+<div class="container-fluid" style=" background: #eee;">
+    <div class="row" ng-hide="viewer == true">
+
+
+        <div class="wri_filter" ng-class="{'activeFilter' : searchIsActive == true}" >
+            <input class="wri_filter__search" ng-click="searchIsActive = true" type="text" ng-model="search.name" placeholder="&#xF002; Search author name">
+            <i class="material-icons wri_filter__cancel" ng-show="search.name.length > 0" ng-click="author.cancelSearch()">close</i> 
+
+        </div>
+        <div ng-show="searchIsActive == true" class="wri_filter__secondary author_filter">
+            <input class="wri_filter__secondary__input" ng-model="search.articles"  type="text" placeholder="authors">   
+            <input class="wri_filter__secondary__input" ng-model="search.email" type="text" placeholder="score">
+            <i class="material-icons wri_filter__secondary__hide" ng-click="searchIsActive = false">vertical_align_top</i>
+        </div>
+
+
+
+        <div class="wri-card col-sm row" ng-repeat="auth in author.authors" ng-click="author.openViewer(auth);">
+            <div class="author card-left">
+                <img src="https://www.edilivre.com/media/events/Mariage_Nathalie_Xavier_SOURCE-0879.jpg" alt="">
+            </div>
+            <div class="card-middle">
+                <h4>John Doe</h4>
+                <span>20/12/1970</span>
+            </div>
+            <div class="card-right wri_auth">
+                <i class="material-icons item">description</i>
+                <span>6</span>
+            </div>
+        </div>
+
+        <div ng-show="searchIsActive == true" class="wri_filter__secondary">
+            <input class="wri_filter__secondary__input" ng-model="search.authors"  type="text" placeholder="authors">   
+            <input class="wri_filter__secondary__input" ng-model="search.score" type="text" placeholder="score">
+            <input class="wri_filter__secondary__input" ng-model="search.keywords"  type="text" placeholder="keywords">
+            <input class="wri_filter__secondary__input" ng-model="search.references"  type="text" placeholder="references">
+            <input class="wri_filter__secondary__input" ng-model="search.notes"  type="text" placeholder="notes">
+            <i class="material-icons wri_filter__secondary__hide" ng-click="searchIsActive = false">vertical_align_top</i>
+        </div>
+    </div>
+
+    <div class="wri_viewer" ng-if="viewer == true">
+        <div>
+            <span class="pull-right" ng-click="author.closeViewer()"><i class="material-icons wri_viewer__close" style="margin: 8px">close</i></span>  
+
+            <div class="wri_viewer__content">
+                <div class="wri_viewer__content__author">
+                    
+                    <div class="wri_viewer__content__author__header">
+                        <img src="https://www.edilivre.com/media/events/Mariage_Nathalie_Xavier_SOURCE-0879.jpg" alt="">
+                    </div>
+
+                    <div class="">
+                        <span><strong>Name : </strong></span><span>{{author.currentAuthor.name}}</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="">
+                        <span><strong>Rating : </strong></span><span>{{author.currentAuthor.rating}}</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="">
+                        <span><strong>Date de naissance : </strong></span><span>{{author.currentAuthor.birthDate}}</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="">
+                        <span><strong>Gender : </strong></span><span>{{author.currentAuthor.gender}}</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="">
+                        <span><strong>Email : </strong></span><span>{{author.currentAuthor.email}}</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="">
+                        <span><strong>Description : </strong></span><span>{{author.currentAuthor.description}}</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="">
+                        <span><strong>Articles : </strong></span>
+                        <span ng-repeat="article in author.currentAuthor.articles">
+                            <span ng-if="!$last">{{article}} / </span>
+                            <span ng-if="$last">{{article}}.</span>
+                        </span>
+                    </div>
+
+                    <hr>
+
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

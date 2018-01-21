@@ -8,20 +8,36 @@
  * Controller of the wriMobileApp
  */
 angular.module('wriMobileApp')
-  .controller('ArticlesCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma',
-      "e",
-      "d",
-      "ee",
-      "dd",
-      "ddd",
-      "ddddd",
-      "ddde",
-      "dddd",
-      "zdez",
-      "dzde"
-    ]; 
-  });
+    .controller('ArticlesCtrl', function ($scope, Articles) {
+
+        var ctrl = this;
+        $scope.viewer = false;
+        ctrl.currentArticle;
+
+        init()
+
+        ctrl.openViewer = function (article){
+          ctrl.currentArticle = article
+          $scope.viewer = true;
+          $scope.searchIsActive =  false;
+        }
+
+        ctrl.closeViewer = function (){
+          ctrl.currentArticle = null;
+          $scope.viewer = false;
+        }
+
+        ctrl.cancelSearch = function () {
+            $scope.search.name = ""
+        }
+
+
+        function init() {
+            Articles.getAll().then(function(articles) {
+                ctrl.articles = articles;
+            }, function (err) {
+                console.log('Erreur get all articles ', err );  
+            });
+        }
+    })
+    

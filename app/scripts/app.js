@@ -15,15 +15,11 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'restangular'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, RestangularProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
       .when('/articles', {
         templateUrl: 'views/articles.html',
         controller: 'ArticlesCtrl',
@@ -50,6 +46,9 @@ angular
         controllerAs: 'profile'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/articles'
       });
+
+    RestangularProvider.setBaseUrl('https://api-wri.herokuapp.com/api/');
+
   });
