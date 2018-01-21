@@ -1,5 +1,51 @@
 <header class="header">
     <nav class="wri-nav" ng-include="'views/include/nav.html'" ng-controller="NavCtrl as nav">
     </nav>
-  </header>
-  <br>
+</header>
+<div class="container-fluid" background: #eee;">
+    <div class="row" ng-hide="viewer == true">
+
+        <div class="wri_filter" ng-class="{'activeFilter' : searchIsActive == true}" >
+            <input class="wri_filter__search" ng-click="searchIsActive = true" type="text" ng-model="search.problematic" placeholder="&#xF002; Search a problematic">
+            <i class="material-icons wri_filter__cancel" ng-show="search.problematic.length > 0" ng-click="question.cancelSearch()">close</i> 
+
+        </div>
+        <div ng-show="searchIsActive == true" class="wri_filter__secondary question_filter">
+            <input class="wri_filter__secondary__input" ng-model="search.createdAt"  type="text" placeholder="date of creation">   
+            <input class="wri_filter__secondary__input" ng-model="search.solution"  type="text" placeholder="solution">   
+            <i class="material-icons wri_filter__secondary__hide" ng-click="searchIsActive = false">vertical_align_top</i>
+        </div>
+
+        <div class="wri-card col-sm row" ng-repeat="quest in question.questions"  ng-click="question.openViewer(quest);">
+            <div class="question card-left">
+                <h3>24</h3>
+                <span>DEC</span>
+                <span>2017</span>
+            </div>
+            <div class="card-middle">
+                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+            </div>
+        </div>
+    </div>
+    <div class="wri_viewer" ng-if="viewer == true">
+        <div>
+            <span class="pull-right" ng-click="question.closeViewer()"><i class="material-icons wri_viewer__close" style="margin: 8px">close</i></span>  
+
+            <div class="wri_viewer__content">
+                <div class="wri_viewer__content">
+                <div class="wri_viewer__content__article">
+                    <span style="font-style: italic;">{{question.currentQuestion.createdAt}} :</span>
+                    
+                    <h2 class="wri_viewer__content__article__header">{{question.currentQuestion.problematic}}</h2>
+                    <div class="">
+                        <span>{{question.currentQuestion.solution}}</span>
+                    </div>
+
+                   
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </div>
+</div>
