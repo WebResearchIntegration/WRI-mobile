@@ -9,7 +9,7 @@
     <div class="row" ng-hide="viewer == true">
 
         <div class="wri_filter" ng-class="{'activeFilter' : searchIsActive == true}" >
-            <input class="wri_filter__search" ng-click="searchIsActive = true" type="text" ng-model="search.name" placeholder="&#xF002; Search article name">
+            <input class="wri_filter__search " ng-click="searchIsActive = true" type="text" ng-model="search.name" placeholder="&#xF002; Search article name">
             <i class="material-icons wri_filter__cancel" ng-show="search.name.length > 0" ng-click="article.cancelSearch()">close</i> 
 
         </div>

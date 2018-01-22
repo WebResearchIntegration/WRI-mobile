@@ -17,9 +17,11 @@ angular.module('wriMobileApp')
         init()
 
         ctrl.openViewer = function (article){
-          ctrl.currentArticle = article
-          $scope.viewer = true;
-          $scope.searchIsActive =  false;
+            ctrl.currentArticle = article
+            var momentDate = moment(ctrl.currentArticle.publishedDate)
+            ctrl.currentArticle.publishedDate = momentDate.format("DD/MM/YYYY"); 
+            $scope.viewer = true;
+            $scope.searchIsActive =  false;
         }
 
         ctrl.closeViewer = function (){

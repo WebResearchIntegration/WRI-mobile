@@ -79,8 +79,6 @@ angular
 
   }).run(function ($rootScope, $location) {
     $rootScope.$on('$routeChangeError', function (event, current, previous, rejection) {
-      console.log('ok' );
-      console.log('rejection : ', rejection );
       if (rejection === 'Not Authenticated') {
         console.log(">>> USER NOT AUTHENTICATED");
         $location.path('/login');
