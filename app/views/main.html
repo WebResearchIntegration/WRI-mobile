@@ -1,4 +1,23 @@
-<div class="wri_auth">
-    <label for="">Username</label><input type="text">
-    <label for="">Password</label><input type="password">
-</div>
+<nav class="wri_nav">
+
+  <a  ng-click="main.activeTab('articles')" class="wri_nav__element">
+    <i ng-class="{'wri_nav_element__active' : articles == true}" class="material-icons">description</i>
+  </a>
+  <a  ng-click="main.activeTab('authors')" class="wri_nav__element">
+    <i ng-class="{'wri_nav_element__active' : authors == true}" class="material-icons">person</i>
+  </a>
+  <a  ng-click="main.activeTab('notes')" class="wri_nav__element">
+    <i ng-class="{'wri_nav_element__active' : notes == true}" class="material-icons">border_color</i>
+  </a>
+  <a  ng-click="main.activeTab('questions')" class="wri_nav__element">
+    <i ng-class="{'wri_nav_element__active' : questions == true}" class="fa fa-question" aria-hidden="true" style="font-size: 40px; margin-bottom: 5px;"></i>
+
+  </a>
+
+</nav>
+
+
+<div ng-show="articles == true" ng-include="'views/articles.html'" ng-controller="ArticlesCtrl as article"></div>
+<div ng-show="authors == true" ng-include="'views/authors.html'" ng-controller="AuthorsCtrl as author"></div>
+<div ng-show="notes == true" ng-include="'views/notes.html'" ng-controller="NotesCtrl as note"></div>
+<div ng-show="questions == true" ng-include="'views/questions.html'" ng-controller="QuestionsCtrl as question"></div>

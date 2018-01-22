@@ -1,46 +1,40 @@
-<header class="header">
-    <nav class="wri-nav" ng-include="'views/include/nav.html'" ng-controller="NavCtrl as nav">
-    </nav>
-</header>
 <div class="container-fluid" style=" background: #eee;">
-    <div class="row" ng-hide="viewer == true">
+    <div class="row wri_list" ng-hide="viewer == true">
 
 
-        <div class="wri_filter" ng-class="{'activeFilter' : searchIsActive == true}" >
-            <input class="wri_filter__search" ng-click="searchIsActive = true" type="text" ng-model="search.name" placeholder="&#xF002; Search aut col-xs-8hor name">
+        <div class="wri_filter">
+            <input class="wri_filter__search col-xs-8" ng-click="searchIsActive = true" type="text" ng-model="search.name" placeholder="&#xF002; Search author name">
             <i class="material-icons wri_filter__cancel" ng-show="search.name.length > 0" ng-click="author.cancelSearch()">close</i> 
 
-        </div>
-        <div ng-show="searchIsActive == true" class="wri_filter__secondary author_filter">
+        </div> 
+
+        <!-- <div class="wri_filter" ng-class="{'activeFilter' : searchIsActive == true}" >
+            <input class="wri_filter__search col-xs-8" ng-click="searchIsActive = true" type="text" ng-model="search.name" placeholder="&#xF002; Search author name">
+            <i class="material-icons wri_filter__cancel" ng-show="search.name.length > 0" ng-click="author.cancelSearch()">close</i> 
+
+        </div> -->
+        <!-- <div ng-show="searchIsActive == true" class="wri_filter__secondary author_filter">
             <input class="wri_filter__secondary__input" ng-model="search.articles"  type="text" placeholder="authors">   
             <input class="wri_filter__secondary__input" ng-model="search.email" type="text" placeholder="score">
             <i class="material-icons wri_filter__secondary__hide" ng-click="searchIsActive = false">vertical_align_top</i>
-        </div>
+        </div> -->
 
 
 
         <div class="wri-card col-sm row" ng-repeat="auth in author.authors" ng-click="author.openViewer(auth);">
             <div class="author card-left">
-                <img src="https://www.edilivre.com/media/events/Mariage_Nathalie_Xavier_SOURCE-0879.jpg" alt="">
+                <!-- <img src="https://www.edilivre.com/media/events/Mariage_Nathalie_Xavier_SOURCE-0879.jpg" alt=""> -->
             </div>
-            <div class="card-middle">
-                <h4>John Doe</h4>
-                <span>20/12/1970</span>
+            <div class="card-middle" style="padding: 5em;">
+                <h4>{{auth.name}}</h4>
+                <span>{{auth.birthDate}}</span>
             </div>
             <div class="card-right">
                 <i class="material-icons item">description</i>
-                <span>6</span>
+                <span>{{auth.articles.length}}</span>
             </div>
         </div>
 
-        <div ng-show="searchIsActive == true" class="wri_filter__secondary">
-            <input class="wri_filter__secondary__input" ng-model="search.authors"  type="text" placeholder="authors">   
-            <input class="wri_filter__secondary__input" ng-model="search.score" type="text" placeholder="score">
-            <input class="wri_filter__secondary__input" ng-model="search.keywords"  type="text" placeholder="keywords">
-            <input class="wri_filter__secondary__input" ng-model="search.references"  type="text" placeholder="references">
-            <input class="wri_filter__secondary__input" ng-model="search.notes"  type="text" placeholder="notes">
-            <i class="material-icons wri_filter__secondary__hide" ng-click="searchIsActive = false">vertical_align_top</i>
-        </div>
     </div>
 
     <div class="wri_viewer" ng-if="viewer == true">
@@ -85,7 +79,7 @@
                     <hr>
 
                     <div class="">
-                        <span><strong>Description : </strong></span><span>{{author.currentAuthor.description}}</span>
+                        <span><strong>Description : </strong></span><span  ng-bind-html="author.currentAuthor.description"></span>
                     </div>
 
                     <hr>

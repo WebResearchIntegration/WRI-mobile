@@ -1,18 +1,18 @@
-<header class="header">
-    <nav class="wri-nav" ng-include="'views/include/nav.html'" ng-controller="NavCtrl as nav">
-    </nav>
-</header>
 <div class="container-fluid" style="background: #eee;">
-    <div class="row" ng-hide="viewer == true">
+    <div class="row wri_list" ng-hide="viewer == true">
 
-        <div class="wri_filter" ng-class="{'activeFilter' : searchIsActive == true}" >
+        <div class="wri_filter">
             <input class="wri_filter__search col-xs-8" ng-click="searchIsActive = true" type="text" ng-model="search.text" placeholder="&#xF002; Search note">
             <i class="material-icons wri_filter__cancel" ng-show="search.text.length > 0" ng-click="note.cancelSearch()">close</i> 
         </div>
-        <div ng-show="searchIsActive == true" class="wri_filter__secondary note_filter">
+        <!-- <div class="wri_filter" ng-class="{'activeFilter' : searchIsActive == true}" >
+            <input class="wri_filter__search col-xs-8" ng-click="searchIsActive = true" type="text" ng-model="search.text" placeholder="&#xF002; Search note">
+            <i class="material-icons wri_filter__cancel" ng-show="search.text.length > 0" ng-click="note.cancelSearch()">close</i> 
+        </div> -->
+        <!-- <div ng-show="searchIsActive == true" class="wri_filter__secondary note_filter">
             <input class="wri_filter__secondary__input" ng-model="search.createdAt"  type="text" placeholder="date of creation">   
             <i class="material-icons wri_filter__secondary__hide" ng-click="searchIsActive = false">vertical_align_top</i>
-        </div>
+        </div> -->
 
         <div class="wri-card col-sm row" ng-repeat="n in note.notes"  ng-click="note.openViewer(n);">
             <div class="note card-left">

@@ -38,7 +38,7 @@ angular.module('wriMobileApp')
             Articles.getAll().then(function(articles) {
                 ctrl.articles = articles;
             }, function (err) {
-                console.log('Erreur get all articles ', err );  
+                console.log('Error get all articles ', err );  
             });
         }
     })

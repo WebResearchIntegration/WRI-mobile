@@ -19,6 +19,8 @@ angular.module('wriMobileApp')
             $scope[tab] = false;
         })
         $scope[currentTab] = true;
+
+        $scope.$emit("activeTab", currentTab);
     }
 
     function initTab(){
