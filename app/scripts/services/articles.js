@@ -7,7 +7,7 @@ angular.module('wriMobileApp')
          * @param NoParam
          */
         service.getAll = function() {
-            return Restangular.all('article').getList();
+            return Restangular.all('articles').getList();
         };
 
         /**
