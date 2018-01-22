@@ -89,7 +89,7 @@ angular
   }).run(function ($http, localStorageService, $location) {
     if(localStorageService.get("token")) {
       var token = localStorageService.get("token");
-      $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+      $http.defaults.headers.common['Authorization'] = token;
     } else {
       $location.path('/login');
     }
