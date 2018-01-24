@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'LocalStorageModule',
-    'restangular'
+    'restangular',
+    'ngTap'
   ])
   .config(function ($routeProvider, RestangularProvider, localStorageServiceProvider) {
     $routeProvider

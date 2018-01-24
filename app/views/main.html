@@ -1,15 +1,15 @@
 <nav class="wri_nav">
 
-  <a  ng-click="main.activeTab('articles')" class="wri_nav__element">
+  <a  ng-tap="main.activeTab('articles')" class="wri_nav__element">
     <i ng-class="{'wri_nav_element__active' : articles == true}" class="material-icons">description</i>
   </a>
-  <a  ng-click="main.activeTab('authors')" class="wri_nav__element">
+  <a  ng-tap="main.activeTab('authors')" class="wri_nav__element">
     <i ng-class="{'wri_nav_element__active' : authors == true}" class="material-icons">person</i>
   </a>
-  <a  ng-click="main.activeTab('notes')" class="wri_nav__element">
+  <a  ng-tap="main.activeTab('notes')" class="wri_nav__element">
     <i ng-class="{'wri_nav_element__active' : notes == true}" class="material-icons">border_color</i>
   </a>
-  <a  ng-click="main.activeTab('questions')" class="wri_nav__element">
+  <a  ng-tap="main.activeTab('questions')" class="wri_nav__element">
     <i ng-class="{'wri_nav_element__active' : questions == true}" class="fa fa-question" aria-hidden="true" style="font-size: 40px; margin-bottom: 5px;"></i>
 
   </a>

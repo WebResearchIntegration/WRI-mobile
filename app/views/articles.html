@@ -49,7 +49,7 @@
         </div>
     </div>
     <div class="wri_viewer" ng-if="viewer == true">
-        <div>
+        <div style="    margin-bottom: 100px;">
             <span class="pull-right" ng-click="article.closeViewer()"><i class="material-icons wri_viewer__close" style="margin: 8px">close</i></span>  
 
             <div class="wri_viewer__content">
@@ -92,7 +92,7 @@
                     <hr>
 
                     <div class="">
-                        <span><strong>Abstract : </strong></span><span>{{article.currentArticle.abstract}}</span>
+                        <span><strong>Abstract : </strong></span><span ng-bind-html="article.currentArticle.abstract"></span>
                     </div>
 
                     <hr>
