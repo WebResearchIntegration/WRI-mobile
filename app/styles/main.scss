@@ -15,13 +15,54 @@ body {
 }
 
 .wri_login {
-  position: fixed;
-  width: 90%;
-  left: 5%;
-  top: 30%;
-  text-align: center;
-  border: 1px solid;
-  padding-bottom: 20px;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 33vh;
+
+    .wri_login__box {
+        border: px solid #0E2E4C;
+        height: 33vh;
+        width: 80vw;
+        margin: auto;
+        box-shadow: 0 0 11px rgba(0,0,2, 0.9);
+
+        .wri_login__box__title {
+            background: #0E2E4C;
+            width: 100%;
+            height: 66px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-bottom: 1px solid #0E2E4C;
+        }
+
+        .wri_login__box__connection {
+            text-align: center;
+        background: white;
+        display: flex;
+        height: 175px;
+        justify-content: center;
+        align-items: center;
+
+            form {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .wri_login__box__connection__login {
+                border: none;
+                color: #0E2E4C;
+                background: #FFA821;
+                width: 70px;
+                height: 33px;
+            }
+        }
+    }
 
   .mdl-card__title {
     background: #3F51B5;
@@ -98,6 +139,12 @@ body {
   .article {
     border-left: 7px solid #a94442;
   }
+
+  .article_no-date {
+    font-size: 23px;
+  }
+
+
   .author {
     border-left: 7px solid #6b6868;
   }
@@ -149,7 +196,7 @@ body {
   z-index: 10;
   position: fixed;
   bottom: 0;
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -159,13 +206,14 @@ body {
 
   .wri_nav__element {
     color: rgba(128, 128, 128, 0.69);
+    width: 31px;
 
     .wri_nav_element__active {
-      color:#333;
+      color:#0E2E4C;
     }
 
     i {
-      font-size: 34px;
+      font-size: 26px;
     }
   }
 }

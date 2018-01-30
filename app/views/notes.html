@@ -34,7 +34,7 @@
                     
                     <div class="">
                         <div style="margin-bottom: 20px; font-style: italic;">{{note.currentNote.createdAt}} : </div>
-                        <div style="color: black"><strong>{{note.currentNote.text}}</strong></div>
+                        <div style="color: black"><strong ng-bind-html="note.currentNote.text"></strong></div>
                     </div>
                     
                 </div>

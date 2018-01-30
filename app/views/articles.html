@@ -25,14 +25,19 @@
 
 
         <div class="wri-card col-sm row" ng-repeat="art in article.articles  | filter: search"  ng-click="article.openViewer(art); " >
-            <div class="article card-left">
-                <h3>24</h3>
-                <span>DEC</span>
-                <span>2017</span>
+            <div class="article card-left" ng-show="art.publishedDate">
+                <h3>{{art.publishedDate | date : 'dd'}}</h3>
+                <span>{{art.publishedDate | date : 'MMM'}}</span>
+                <span>{{art.publishedDate | date : 'yyyy'}}</span>
+            </div>
+            <div class="article article_no-date card-left " ng-show="!art.publishedDate">
+                /
             </div>
             <div class="card-middle">
                 <h4>{{art.name}}</h4>
-                <span>Author Name</span>
+                <div ng-repeat="author in art.authors">
+                    <span>{{author.name}}</span>
+                </div>
             </div>
             <div class="card-right">
                 <div>
@@ -49,7 +54,7 @@
         </div>
     </div>
     <div class="wri_viewer" ng-if="viewer == true">
-        <div style="    margin-bottom: 100px;">
+        <div style="margin-bottom: 100px;">
             <span class="pull-right" ng-click="article.closeViewer()"><i class="material-icons wri_viewer__close" style="margin: 8px">close</i></span>  
 
             <div class="wri_viewer__content">
@@ -63,7 +68,7 @@
                     <hr>
 
                     <div class="">
-                        <span><strong>Date de publication : </strong></span><span>{{article.currentArticle.publishedDate}}</span>
+                        <span><strong>Date de publication : </strong></span><span>{{article.currentArticle.publishedDate | date :'dd/MM/yyyy'}}</span>
                     </div>
 
                     <hr>
@@ -100,8 +105,8 @@
                     <div class="">
                         <span><strong>Auteurs : </strong></span>
                         <span ng-repeat="authors in article.currentArticle.authors">
-                            <span ng-if="!$last">{{authors}} / </span>
-                            <span ng-if="$last">{{authors}}.</span>
+                            <span ng-if="!$last">{{authors.name}} / </span>
+                            <span ng-if="$last">{{authors.name}}.</span>
                         </span>
                     </div>
 
@@ -120,28 +125,29 @@
                     <div class="">
                         <span><strong>Références : </strong></span>
                         <span ng-repeat="ref in article.currentArticle.references">
-                            <span ng-if="!$last">{{ref}} / </span>
-                            <span ng-if="$last">{{ref}}.</span>
+                            <span ng-if="!$last">{{ref.name}} / </span>
+                            <span ng-if="$last">{{ref.name}}.</span>
                         </span>
                     </div>
 
                     <hr>
 
                     <div class="">
-                        <span><strong>Notes : </strong></span>
+                        <span><strong>Notes : </strong></span><br><br>
                         <span ng-repeat="note in article.currentArticle.notes">
-                            <span ng-if="!$last" ng-if="note.length > 15" ng-bind-html="note">/</span>
-                            <span ng-if="$last" ng-bind-html="note">.</span>
+                            <span ng-if="!$last" ng-if="note.length > 15" ng-bind-html="note.text">/</span>
+                            <span ng-if="$last" ng-bind-html="note.text">.</span>
                         </span>
                     </div>
 
                     <hr>
 
                     <div class="">
-                        <span><strong>Questions : </strong></span>
-                        <span ng-repeat="question in article.currentArticle.quesitons">
-                            <span ng-if="!$last" ng-bind-html="question"> / </span>
-                            <span ng-if="$last" ng-bind-html="question">.</span>
+                        <span><strong>Questions : </strong></span><br><br>
+                        <span ng-repeat="question in article.currentArticle.questions">
+                            <span ng-bind-html="question.problematic">  </span>
+                            <span ng-bind-html="question.answer"> </span>
+                            <br><br>
                         </span>
                     </div>
                 </div>

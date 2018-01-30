@@ -87,8 +87,8 @@
                     <div class="">
                         <span><strong>Articles : </strong></span>
                         <span ng-repeat="article in author.currentAuthor.articles">
-                            <span ng-if="!$last">{{article}} / </span>
-                            <span ng-if="$last">{{article}}.</span>
+                            <span ng-if="!$last">{{article.name}} / </span>
+                            <span ng-if="$last">{{article.name}}.</span>
                         </span>
                     </div>
 

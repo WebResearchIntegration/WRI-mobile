@@ -18,15 +18,18 @@ angular.module('wriMobileApp')
 
         ctrl.openViewer = function (article){
             ctrl.currentArticle = article
-            var momentDate = moment(ctrl.currentArticle.publishedDate)
-            ctrl.currentArticle.publishedDate = momentDate.format("DD/MM/YYYY"); 
             $scope.viewer = true;
             $scope.searchIsActive =  false;
         }
 
         ctrl.closeViewer = function (){
-          ctrl.currentArticle = null;
-          $scope.viewer = false;
+            ctrl.currentArticle = null;
+            $scope.viewer = false;
+            Articles.getAll().then(function(articles) {
+                ctrl.articles = articles;
+            }, function (err) {
+                console.log('Error get all articles ', err );  
+            });
         }
 
         ctrl.cancelSearch = function () {
@@ -40,6 +43,7 @@ angular.module('wriMobileApp')
             }, function (err) {
                 console.log('Error get all articles ', err );  
             });
+
         }
     })
     

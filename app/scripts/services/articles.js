@@ -1,3 +1,12 @@
+'use strict';
+
+/**
+ * @ngdoc service
+ * @name wriMobileApp.articles
+ * @description
+ * # articles
+ * Service in the wriMobileApp.
+ */
 angular.module('wriMobileApp')
     .service('Articles', [ 'Restangular', function (Restangular) {
         var service = this;
