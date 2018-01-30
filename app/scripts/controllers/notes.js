@@ -11,6 +11,7 @@ angular.module('wriMobileApp')
   .controller('NotesCtrl', function ($scope, Notes) {
         var ctrl = this;
         $scope.viewer = false;
+        $scope.etc = '...';
         ctrl.currentNote;
 
         // ctrl.notes = [

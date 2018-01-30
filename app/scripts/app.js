@@ -26,16 +26,37 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
-      }).when('/main', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main',
+      }).when('/articles', {
+        templateUrl: 'views/articles.html',
+        controller: 'ArticlesCtrl',
+        controllerAs: 'article',
+        resolve: {
+          access: ["Auth", function(Auth) {return Auth.isAuthenticated()}]
+        }
+      }).when('/authors', {
+        templateUrl: 'views/authors.html',
+        controller: 'AuthorsCtrl',
+        controllerAs: 'author',
+        resolve: {
+          access: ["Auth", function(Auth) {return Auth.isAuthenticated()}]
+        }
+      }).when('/notes', {
+        templateUrl: 'views/notes.html',
+        controller: 'NotesCtrl',
+        controllerAs: 'note',
+        resolve: {
+          access: ["Auth", function(Auth) {return Auth.isAuthenticated()}]
+        }
+      }).when('/questions', {
+        templateUrl: 'views/questions.html',
+        controller: 'QuestionsCtrl',
+        controllerAs: 'question',
         resolve: {
           access: ["Auth", function(Auth) {return Auth.isAuthenticated()}]
         }
       })
       .otherwise({
-        redirectTo: '/main'
+        redirectTo: '/articles'
       });
 
     // [RESTANGuLAR CONFIG: START]

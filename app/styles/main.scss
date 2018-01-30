@@ -17,20 +17,19 @@ body {
 .wri_login {
     height: 100vh;
     width: 100vw;
-    padding-top: 33vh;
+    padding-top: 28vh;
 
     .wri_login__box {
-        border: px solid #0E2E4C;
-        height: 33vh;
+        height: 39vh;
         width: 80vw;
+        background: white;
         margin: auto;
-        box-shadow: 0 0 11px rgba(0,0,2, 0.9);
+        box-shadow: 0 0 11px rgba(0, 0, 2, 0.9);
 
         .wri_login__box__title {
             background: #0E2E4C;
             width: 100%;
-            height: 66px;
-            position: relative;
+            height: 23%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -40,14 +39,13 @@ body {
 
         .wri_login__box__connection {
             text-align: center;
-        background: white;
-        display: flex;
-        height: 175px;
-        justify-content: center;
-        align-items: center;
+            background: white;
+            display: flex;
+            height: 77%;
+            justify-content: center;
+            align-items: center;
 
             form {
-                height: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
@@ -82,13 +80,6 @@ body {
   .mdl-card__supporting-text {
     margin-top: 30px;
 
-    .wri_form__textfield > input {
-      border:none;
-      border-bottom: 1px solid;
-      background: transparent;
-      margin-bottom: 15px;
-    }
-
     .mdl-button {
       border: none;
       color: white;
@@ -100,6 +91,13 @@ body {
   }
 
 
+}
+
+input {
+  border:none;
+  border-bottom: 1px solid;
+  background: transparent;
+  margin-bottom: 15px;
 }
 
 .wri-card {
@@ -162,6 +160,23 @@ body {
     flex-direction: column;
     justify-content: space-around;
     padding-left: 1em;
+    overflow: hidden;
+    position: relative;
+
+    .card-middle-limit {
+      width: 150px;
+      height: 50px;
+
+      &:after {
+        content: "...";
+        position: absolute;
+        right: 43px;
+        bottom: 21px;
+
+      }
+    }
+
+
     h4 {
       font-family: 'LatoWebSemibold';
     }
@@ -196,7 +211,7 @@ body {
   z-index: 10;
   position: fixed;
   bottom: 0;
-  height: 60px;
+  height: 40px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -213,7 +228,7 @@ body {
     }
 
     i {
-      font-size: 26px;
+      font-size: 18px;
     }
   }
 }
@@ -336,7 +351,7 @@ input {
 
     .wri_filter__search {
         
-        width: 300px;
+        width: 80vw;
         height: 34px;
         padding-left: 10px;
         color: black;
@@ -349,9 +364,10 @@ input {
     }
         
     .wri_filter__cancel {
-          position: absolute;
-          right: 66px;
-          font-size: 17px;
+        position: absolute;
+        right: 10vw;
+        font-size: 17px;
+        top: 14px;
     }
 }
 

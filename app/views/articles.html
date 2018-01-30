@@ -1,25 +1,27 @@
+<div ng-include="'views/include/nav.html'" ng-controller="NavCtrl as nav"></div>
 <div class="container-fluid" style="background: #eee;" >
     <div class="row wri_list" ng-hide="viewer == true">
 
         <div class="wri_filter"  >
             <input class="wri_filter__search col-xs-8" ng-click="searchIsActive = true" type="text" ng-model="search.name" placeholder="&#xF002; Search article name">
-            <i class="material-icons wri_filter__cancel" ng-show="search.name.length > 0" ng-click="article.cancelSearch()">close</i> 
+          <!--   <i class="material-icons wri_filter__cancel" ng-show="search.name.length > 0" ng-click="article.cancelSearch(search.name)">close</i> -->
 
         </div>
-        <!-- <div class="wri_filter" ng-class="{'activeFilter' : searchIsActive == true}" >
+
+       <!--  <div class="wri_filter" ng-class="{'activeFilter' : searchIsActive == true}" >
             <input class="wri_filter__search col-xs-8" ng-click="searchIsActive = true" type="text" ng-model="search.name" placeholder="&#xF002; Search article name">
-            <i class="material-icons wri_filter__cancel" ng-show="search.name.length > 0" ng-click="article.cancelSearch()">close</i> 
+            <i class="material-icons wri_filter__cancel" ng-show="search.name.length > 0" ng-tap="article.cancelSearch()">close</i> 
 
         </div>
-         --><!-- <div ng-show="searchIsActive == true" class="wri_filter__secondary article_filter">
+        <div ng-show="searchIsActive == true" class="wri_filter__secondary article_filter">
             <input class="wri_filter__secondary__input" ng-model="search.authors"  type="text" placeholder="authors">   
             <input class="wri_filter__secondary__input" ng-model="search.score" type="text" placeholder="score">
             <input class="wri_filter__secondary__input" ng-model="search.keywords"  type="text" placeholder="keywords">
             <input class="wri_filter__secondary__input" ng-model="search.references"  type="text" placeholder="references">
             <input class="wri_filter__secondary__input" ng-model="search.notes"  type="text" placeholder="notes">
             <i class="material-icons wri_filter__secondary__hide " ng-click="searchIsActive = false">vertical_align_top</i>
-        </div>
- -->
+        </div>  -->
+
 
 
 

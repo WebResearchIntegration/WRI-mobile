@@ -23,17 +23,13 @@ angular.module('wriMobileApp')
         }
 
         ctrl.closeViewer = function (){
+            console.log('running' );
             ctrl.currentArticle = null;
             $scope.viewer = false;
-            Articles.getAll().then(function(articles) {
-                ctrl.articles = articles;
-            }, function (err) {
-                console.log('Error get all articles ', err );  
-            });
         }
 
         ctrl.cancelSearch = function () {
-            $scope.search.name = ""
+            $scope.search.name = "";
         }
 
 

@@ -1,11 +1,12 @@
+<div ng-include="'views/include/nav.html'" ng-controller="NavCtrl as nav"></div>
 <div class="container-fluid" style=" background: #eee;">
     <div class="row wri_list" ng-hide="viewer == true">
 
 
         <div class="wri_filter">
             <input class="wri_filter__search col-xs-8" ng-click="searchIsActive = true" type="text" ng-model="search.name" placeholder="&#xF002; Search author name">
-            <i class="material-icons wri_filter__cancel" ng-show="search.name.length > 0" ng-click="author.cancelSearch()">close</i> 
-
+           <!--  <i class="material-icons wri_filter__cancel" ng-show="search.name.length > 0" ng-click="author.cancelSearch()">close</i> 
+ -->
         </div> 
 
         <!-- <div class="wri_filter" ng-class="{'activeFilter' : searchIsActive == true}" >
@@ -25,9 +26,9 @@
             <div class="author card-left">
                 <!-- <img src="https://www.edilivre.com/media/events/Mariage_Nathalie_Xavier_SOURCE-0879.jpg" alt=""> -->
             </div>
-            <div class="card-middle" style="padding: 5em;">
+            <div class="card-middle">
                 <h4>{{auth.name}}</h4>
-                <span>{{auth.birthDate}}</span>
+                <span>{{auth.email}}</span>
             </div>
             <div class="card-right">
                 <i class="material-icons item">description</i>

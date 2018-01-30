@@ -1,10 +1,12 @@
+<div ng-include="'views/include/nav.html'" ng-controller="NavCtrl as nav"></div>
+
 <div class="container-fluid" style=" background: #eee;">
     <div class="row wri_list" ng-hide="viewer == true">
 
         <div class="wri_filter" >
             <input class="wri_filter__search col-xs-8" ng-click="searchIsActive = true" type="text" ng-model="search.problematic" placeholder="&#xF002; Search a problematic">
-            <i class="material-icons wri_filter__cancel" ng-show="search.problematic.length > 0" ng-click="question.cancelSearch()">close</i> 
-
+           <!--  <i class="material-icons wri_filter__cancel" ng-show="search.problematic.length > 0" ng-click="question.cancelSearch()">close</i> 
+ -->
         </div>
         
 
