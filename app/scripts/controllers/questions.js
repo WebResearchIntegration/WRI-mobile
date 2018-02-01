@@ -59,9 +59,11 @@ angular.module('wriMobileApp')
 
         function init() {
             Questions.getAll().then(function(questions) {
+                console.log(questions );
                 ctrl.questions = questions;
             }, function (err) {
                 console.log('Error get all questions ', err );  
             });
         }
   });
+

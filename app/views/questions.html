@@ -30,9 +30,9 @@
             </div>
             <div class="card-middle">
                 <h4 ng-bind-html="quest.problematic" style="width : 200px;"></h4>
-                <div>
-                    <span ng-bind-html="quest.solution"></span>
-                </div>
+<!--                 <div>
+                    <span ng-bind-html="quest.answer"></span>
+                </div> -->
             </div>
         </div>
     </div>
@@ -43,11 +43,11 @@
             <div class="wri_viewer__content">
                 <div class="wri_viewer__content">
                 <div class="wri_viewer__content__article">
-                    <span style="font-style: italic;">{{question.currentQuestion.createdAt}} :</span>
+                    <span style="font-style: italic;">{{question.currentQuestion.createdAt | date : 'dd/MM/yyyy'}} :</span>
                     
                     <h2 class="wri_viewer__content__article__header" ng-bind-html="question.currentQuestion.problematic"></h2>
                     <div class="">
-                        <span ng-bind-html="question.currentQuestion.solution"></span>
+                        <span ng-bind-html="question.currentQuestion.answer"></span>
                     </div>
 
                    
