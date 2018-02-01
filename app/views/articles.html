@@ -1,4 +1,3 @@
-<div ng-include="'views/include/nav.html'" ng-controller="NavCtrl as nav"></div>
 <div class="container-fluid" style="background: #eee;" >
     <div class="row wri_list" ng-hide="viewer == true">
 
@@ -139,17 +138,17 @@
                         <span ng-repeat="note in article.currentArticle.notes">
                             <span ng-if="!$last" ng-if="note.length > 15" ng-bind-html="note.text">/</span>
                             <span ng-if="$last" ng-bind-html="note.text">.</span>
+                            <hr style="width:90px;" ng-if="!$last">
                         </span>
                     </div>
 
                     <hr>
 
                     <div class="">
-                        <span><strong>Questions : </strong></span><br><br>
                         <span ng-repeat="question in article.currentArticle.questions">
-                            <span ng-bind-html="question.problematic">  </span>
-                            <span ng-bind-html="question.answer"> </span>
-                            <br><br>
+                            <strong>Question : </strong><span ng-bind-html="question.problematic"></span>
+                            <strong>Answer : </strong><span ng-bind-html="question.answer"> </span>
+                            <hr style="width:90px;" ng-if="!$last">
                         </span>
                     </div>
                 </div>

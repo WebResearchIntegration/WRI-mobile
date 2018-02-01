@@ -60,13 +60,13 @@ angular.module('wriMobileApp')
         init()
 
         ctrl.openViewer = function (author){
-          ctrl.currentAuthor = author
-          $scope.viewer = true;
+            ctrl.currentAuthor = author
+            $scope.viewer = true;
         }
 
         ctrl.closeViewer = function (){
-          ctrl.currentAuthor = null;
-          $scope.viewer = false;
+            ctrl.currentAuthor = null;
+            $scope.viewer = false;
         }
 
         function init() {
